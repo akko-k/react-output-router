@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* コンテンツを横方向の中央に配置 */
+    justify-content: center; /* コンテンツを縦方向の中央に配置 */
+    height: 100vh; /* 画面全体の高さを占める */
+    text-align: center; /* テキストを中央揃えに */
+  }
+  
+  input {
+    display: block; /* ブロック要素として扱い、改行 */
+    margin: 10px 0; /* 上下にマージンを追加 */
+  }
