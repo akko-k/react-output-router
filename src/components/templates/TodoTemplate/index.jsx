@@ -16,10 +16,11 @@ export const TodoTemplate = () => {
   const [todos, setTodos] = useState(INIT_TODO_LIST);
   const [addInputValue, setAddInputValue] = useState('');
 
-  //新規リスト入力
+  //新規TODOリスト入力
   const onChangeAddInputValue = (e) => setAddInputValue(e.target.value);
-  //新規リスト追加
-  const handleKeyDown = (e) => {
+
+  //TODOリストに新規TODOリストを追加
+  const handleAddNewTodo = (e) => {
     if (e.key === 'Enter' && addInputValue) {
       const newTodo = [
         ...todos,
@@ -31,6 +32,12 @@ export const TodoTemplate = () => {
       setTodos(newTodo);
       setAddInputValue('');
     }
+  };
+
+  //TODOリストを削除
+  const handleDeleteTodo = (id) => {
+    const newTodo = todos.filter((todo, index) => index !== id);
+    setTodos(newTodo);
   };
 
   return (
@@ -46,7 +53,7 @@ export const TodoTemplate = () => {
           placeholder={'TODOを入力'}
           value={addInputValue}
           onChange={onChangeAddInputValue}
-          onKeyDown={handleKeyDown}
+          onKeyDown={handleAddNewTodo}
         />
       </div>
 
@@ -58,10 +65,16 @@ export const TodoTemplate = () => {
       </div>
       {/* リスト */}
       <ul>
-        {todos.map((todo) => (
+        {todos.map((todo, id) => (
           <li key={todo.id}>
             <span>{todo.title}</span>
-            <button>削除</button>
+            <button
+              onClick={() => {
+                handleDeleteTodo(id);
+              }}
+            >
+              削除
+            </button>
           </li>
         ))}
       </ul>
