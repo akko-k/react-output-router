@@ -12,18 +12,22 @@ export const TodoTemplate = () => {
       title: '洗濯する',
     },
   ];
-  const [todos, setTodos] = useState(INIT_TODO_LIST);
+    const [todos, setTodos] = useState(INIT_TODO_LIST);
   return (
     <div className={styles.container}>
       <h1>TODO List</h1>
-      <div>ADD TODO</div>
-      {/* リスト追加 */}
+
       <div>
+        {/* リスト追加 */}
+        <div>ADD TODO</div>
         <input type="text" />
+        <button>追加</button>
       </div>
-      {/* 検索 */}
+
       <div>
+        {/* 検索 */}
         <input type="text" />
+        <button>検索</button>
       </div>
       {/* リスト */}
       <ul>
