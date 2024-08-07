@@ -1,5 +1,6 @@
 import styles from './styles.module.css';
 import { useState } from 'react';
+import { useMemo } from 'react';
 
 export const TodoTemplate = () => {
   const INIT_TODO_LIST = [
@@ -15,9 +16,15 @@ export const TodoTemplate = () => {
 
   const [todos, setTodos] = useState(INIT_TODO_LIST);
   const [addInputValue, setAddInputValue] = useState('');
+  const [searchKeyword, setSearchKeyword] = useState('');
 
   //新規TODOリスト入力
   const onChangeAddInputValue = (e) => setAddInputValue(e.target.value);
+
+  //検索ワードに一致するTODOリストを取得
+  const filteredTodos = useMemo(() => {
+    return todos.filter((todo) => todo.title.toLowerCase().includes(searchKeyword.toLowerCase()));
+  }, [todos, searchKeyword]);
 
   //TODOリストに新規TODOリストを追加
   const handleAddNewTodo = (e) => {
@@ -39,6 +46,10 @@ export const TodoTemplate = () => {
     const newTodo = todos.filter((todo, index) => index !== id);
     setTodos(newTodo);
   };
+  // 検索ワードを更新
+  const handleChangeSearchKeyword = (e) => setSearchKeyword(e.target.value);
+
+  //
 
   return (
     <div className={styles.container}>
@@ -60,12 +71,11 @@ export const TodoTemplate = () => {
       <div>
         {/* 検索 */}
         <h2>検索</h2>
-        <input type="text" />
-        <button>検索</button>
+        <input type="text" placeholder={'TODOを検索'} onChange={handleChangeSearchKeyword} />
       </div>
       {/* リスト */}
       <ul>
-        {todos.map((todo, id) => (
+        {filteredTodos.map((todo, id) => (
           <li key={todo.id}>
             <span>{todo.title}</span>
             <button
