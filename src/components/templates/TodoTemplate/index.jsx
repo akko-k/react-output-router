@@ -1,7 +1,13 @@
 import styles from './styles.module.css';
 import { useState } from 'react';
 import { useMemo } from 'react';
-import { INIT_TODO_LIST, INIT_UNIQUE_ID } from '../../../constants/data';
+import {
+  INIT_TODO_LIST,
+  INIT_UNIQUE_ID,
+} from '../../../constants/data';
+import { TodoList } from '../../organisms/TodoList';
+import { AddTodo } from '../../organisms/AddTodo';
+import { SearchForm } from '../../atoms/SearchForm';
 
 /**
  * TodoTemplate component.
@@ -19,12 +25,15 @@ export const TodoTemplate = () => {
   //検索ワード
   const [searchKeyword, setSearchKeyword] = useState('');
 
-  //新規TODOリスト入力
-  const onChangeAddInputValue = (e) => setAddInputValue(e.target.value);
+  //新規TODOリスト入力値を更新
+  const onChangeAddInputValue = (e) =>
+    setAddInputValue(e.target.value);
 
   //検索ワードに一致するTODOリストを取得
   const filteredTodos = useMemo(() => {
-    return todos.filter((todo) => todo.title.toLowerCase().includes(searchKeyword.toLowerCase()));
+    return todos.filter((todo) =>
+      todo.title.toLowerCase().includes(searchKeyword.toLowerCase())
+    );
   }, [todos, searchKeyword]);
 
   //TODOリストに新規TODOリストを追加
@@ -50,47 +59,28 @@ export const TodoTemplate = () => {
     setTodos(newTodo);
   };
   // 検索ワードを更新
-  const handleChangeSearchKeyword = (e) => setSearchKeyword(e.target.value);
+  const handleChangeSearchKeyword = (e) =>
+    setSearchKeyword(e.target.value);
 
   //
 
   return (
     <div className={styles.container}>
       <h1>TODO List</h1>
-
-      <div>
-        {/* リスト追加 */}
-        <h2>新規追加</h2>
-        <input
-          // className={}
-          type="text"
-          placeholder={'TODOを入力'}
-          value={addInputValue}
-          onChange={onChangeAddInputValue}
-          onKeyDown={handleAddNewTodo}
-        />
-      </div>
-
-      <div>
-        {/* 検索 */}
-        <h2>検索</h2>
-        <input type="text" placeholder={'TODOを検索'} onChange={handleChangeSearchKeyword} />
-      </div>
-      {/* リスト */}
-      <ul>
-        {filteredTodos.map((todo, id) => (
-          <li key={todo.id}>
-            <span>{todo.title}</span>
-            <button
-              onClick={() => {
-                handleDeleteTodo(id);
-              }}
-            >
-              削除
-            </button>
-          </li>
-        ))}
-      </ul>
+      <AddTodo
+        placeholder={'TODOを入力'}
+        addInputValue={addInputValue}
+        onChangeAddInputValue={onChangeAddInputValue}
+        handleAddNewTodo={handleAddNewTodo}
+      />
+      <SearchForm
+        placeholder={'TODOを検索'}
+        handleChangeSearchKeyword={handleChangeSearchKeyword}
+      />
+      <TodoList
+        filteredTodos={filteredTodos}
+        handleDeleteTodo={handleDeleteTodo}
+      />
     </div>
   );
 };
