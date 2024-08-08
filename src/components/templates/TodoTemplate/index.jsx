@@ -3,12 +3,18 @@ import { useState } from 'react';
 import { useMemo } from 'react';
 import { INIT_TODO_LIST, INIT_UNIQUE_ID } from '../../../constants/data';
 
+/**
+ * TodoTemplate component.
+ *
+ * @component
+ * @returns {JSX.Element} TodoTemplate component.
+ */
 export const TodoTemplate = () => {
-  // todoリスト
+  //todoリスト
   const [todos, setTodos] = useState(INIT_TODO_LIST);
   //採番ID
   const [uniqueId, setUniqueId] = useState(INIT_UNIQUE_ID);
-  // 新規TODOリスト入力値
+  //新規TODOリスト入力値
   const [addInputValue, setAddInputValue] = useState('');
   //検索ワード
   const [searchKeyword, setSearchKeyword] = useState('');
