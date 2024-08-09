@@ -66,21 +66,26 @@ export const TodoTemplate = () => {
 
   return (
     <div className={styles.container}>
-      <h1>TODO List</h1>
-      <AddTodo
-        placeholder={'TODOを入力'}
-        addInputValue={addInputValue}
-        onChangeAddInputValue={onChangeAddInputValue}
-        handleAddNewTodo={handleAddNewTodo}
-      />
-      <SearchForm
-        placeholder={'TODOを検索'}
-        handleChangeSearchKeyword={handleChangeSearchKeyword}
-      />
-      <TodoList
-        filteredTodos={filteredTodos}
-        handleDeleteTodo={handleDeleteTodo}
-      />
+      <h1 className={styles.title}>TODO List</h1>
+      <section className={styles.common}>
+        <AddTodo
+          placeholder={'TODOを入力'}
+          addInputValue={addInputValue}
+          onChangeAddInputValue={onChangeAddInputValue}
+          handleAddNewTodo={handleAddNewTodo}
+        />
+      </section>
+      <section className={styles.common}>
+        <SearchForm
+          placeholder={'TODOを検索'}
+          handleChangeSearchKeyword={handleChangeSearchKeyword}
+        />
+        <section className={styles.common}></section>
+        <TodoList
+          filteredTodos={filteredTodos}
+          handleDeleteTodo={handleDeleteTodo}
+        />
+      </section>
     </div>
   );
 };

@@ -1,13 +1,17 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* コンテンツを横方向の中央に配置 */
-  justify-content: center; /* コンテンツを縦方向の中央に配置 */
-  height: 100vh; /* 画面全体の高さを占める */
-  text-align: center; /* テキストを中央揃えに */
+  width: 50%;
+  margin: 80px auto;
 }
 
-input {
-  display: block; /* ブロック要素として扱い、改行 */
-  margin: 10px 0; /* 上下にマージンを追加 */
+.title {
+  text-align: center;
+  /* font-family: 'Times New Roman', Times, serif; */
+  font-size: 2rem;
+  color: #111;
+}
+
+.common {
+  width: 80%;
+  margin: 40px auto;
+  text-align: center;
 }
