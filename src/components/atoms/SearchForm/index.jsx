@@ -1,4 +1,4 @@
-// import styles from './style.modules.css';
+import styles from './style.module.css';
 /**
  * SearchForm component.
  *
@@ -10,8 +10,8 @@ export const SearchForm = (props) => {
   const { placeholder, handleChangeSearchKeyword } = props;
   return (
     <>
-      <h2>検索</h2>
       <input
+        className={styles.input}
         type="text"
         placeholder={placeholder}
         onChange={handleChangeSearchKeyword}

@@ -1,3 +1,4 @@
+import styles from './style.module.css';
 /**
  * AddTodo component.
  *
@@ -14,8 +15,8 @@ export const AddTodo = (props) => {
   } = props;
   return (
     <>
-      <h2>新規追加</h2>
       <input
+        className={styles.input}
         type="text"
         placeholder={placeholder}
         value={addInputValue}

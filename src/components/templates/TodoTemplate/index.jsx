@@ -69,7 +69,7 @@ export const TodoTemplate = () => {
       <h1 className={styles.title}>TODO List</h1>
       <section className={styles.common}>
         <AddTodo
-          placeholder={'TODOを入力'}
+          placeholder={'TODOを追加'}
           addInputValue={addInputValue}
           onChangeAddInputValue={onChangeAddInputValue}
           handleAddNewTodo={handleAddNewTodo}
