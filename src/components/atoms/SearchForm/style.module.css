@@ -5,13 +5,13 @@
   padding: 10px;
   box-sizing: border-box;
   font-size: 20px;
-  border-radius: 5px;
+  border-radius: 25px;
   background-color: #eeeeee;
-  padding-left: 40px;
+  padding-left: 50px;
 }
 
 .input::placeholder {
-  color: #c0c0c0;
+  color: #aaa;
 }
 
 .searchContainer {
@@ -24,7 +24,7 @@
 
 .searchIcon {
   position: absolute;
-  left: 10px;
+  left: 20px;
   top: 50%;
   transform: translateY(-50%);
   color: #aaa;

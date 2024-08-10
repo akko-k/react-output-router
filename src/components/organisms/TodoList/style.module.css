@@ -13,9 +13,9 @@ li {
   font-size: 18px;
 }
 
-li:last-child {
+/* li:last-child {
   border-bottom: none;
-}
+} */
 
 .deleteIcon {
   cursor: pointer;
