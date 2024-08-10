@@ -1,3 +1,7 @@
+import styles from './style.module.css';
+
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 /**
  * Renders a list of todos.
  *
@@ -13,12 +17,11 @@ export const TodoList = (props) => {
         {filteredTodos.map((todo, id) => (
           <li key={todo.id}>
             <span>{todo.title}</span>
-            <button
-              onClick={() => {
-                handleDeleteTodo(id);
-              }}>
-              削除
-            </button>
+            <FontAwesomeIcon
+              icon={faTrashAlt}
+              onClick={() => handleDeleteTodo(id)}
+              className={styles.deleteIcon}
+            />
           </li>
         ))}
       </ul>
