@@ -14,15 +14,20 @@ export const AddTodo = (props) => {
     handleAddNewTodo,
   } = props;
   return (
-    <>
+    <div className={styles.container}>
       <input
         className={styles.input}
         type="text"
         placeholder={placeholder}
         value={addInputValue}
         onChange={onChangeAddInputValue}
-        onKeyDown={handleAddNewTodo}
       />
-    </>
+      <button
+        className={styles.button} // Add styling for the button
+        onClick={handleAddNewTodo} // Trigger the function on button click
+      >
+        追加
+      </button>
+    </div>
   );
 };

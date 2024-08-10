@@ -38,7 +38,7 @@ export const TodoTemplate = () => {
 
   //TODOリストに新規TODOリストを追加
   const handleAddNewTodo = (e) => {
-    if (e.key === 'Enter' && addInputValue) {
+    if (addInputValue) {
       const nextUniqueId = uniqueId + 1;
       const newTodo = [
         ...todos,
@@ -69,7 +69,7 @@ export const TodoTemplate = () => {
       <h1 className={styles.title}>TODO List</h1>
       <section className={styles.common}>
         <AddTodo
-          placeholder={'TODOを追加'}
+          placeholder={'新しいTODO'}
           addInputValue={addInputValue}
           onChangeAddInputValue={onChangeAddInputValue}
           handleAddNewTodo={handleAddNewTodo}
