@@ -23,9 +23,8 @@ export const AddTodo = (props) => {
         onChange={onChangeAddInputValue}
       />
       <button
-        className={styles.button} // Add styling for the button
-        onClick={handleAddNewTodo} // Trigger the function on button click
-      >
+        className={styles.button}
+        onClick={handleAddNewTodo}>
         追加
       </button>
     </div>

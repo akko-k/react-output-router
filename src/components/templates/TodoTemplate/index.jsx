@@ -62,8 +62,6 @@ export const TodoTemplate = () => {
   const handleChangeSearchKeyword = (e) =>
     setSearchKeyword(e.target.value);
 
-  //
-
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>TODO List</h1>
