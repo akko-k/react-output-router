@@ -43,3 +43,5 @@ yarn dev
 - react: 18.3.1
 - react-dom: 18.3.1
 - vite: 5.3.5
+- @fortawesome/react-fontawesome: 0.2.2
+- @fortawesome/free-solid-svg-icons: 6.6.0
