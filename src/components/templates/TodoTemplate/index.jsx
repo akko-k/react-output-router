@@ -38,7 +38,7 @@ export const TodoTemplate = () => {
   }, [todos, searchKeyword]);
 
   //TODOリストに新規TODOリストを追加
-  const handleAddNewTodo = (e) => {
+  const handleAddNewTodo = () => {
     if (addInputValue) {
       const nextUniqueId = uniqueId + 1;
       const newTodo = [
