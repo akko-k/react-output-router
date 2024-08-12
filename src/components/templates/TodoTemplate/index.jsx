@@ -1,6 +1,5 @@
 import styles from './styles.module.css';
-import { useState } from 'react';
-import { useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import {
   INIT_TODO_LIST,
   INIT_UNIQUE_ID,
@@ -32,7 +31,9 @@ export const TodoTemplate = () => {
   //検索ワードに一致するTODOリストを取得
   const filteredTodos = useMemo(() => {
     return todos.filter((todo) =>
-      todo.title.toLowerCase().includes(searchKeyword.toLowerCase())
+      todo.title
+        .toLowerCase()
+        .includes(searchKeyword.toLowerCase())
     );
   }, [todos, searchKeyword]);
 
@@ -55,7 +56,9 @@ export const TodoTemplate = () => {
 
   //TODOリストを削除
   const handleDeleteTodo = (id) => {
-    const newTodo = todos.filter((todo, index) => index !== id);
+    const newTodo = todos.filter(
+      (todo, index) => index !== id
+    );
     setTodos(newTodo);
   };
   // 検索ワードを更新
@@ -76,7 +79,9 @@ export const TodoTemplate = () => {
       <section className={styles.common}>
         <SearchForm
           placeholder={'TODOを検索'}
-          handleChangeSearchKeyword={handleChangeSearchKeyword}
+          handleChangeSearchKeyword={
+            handleChangeSearchKeyword
+          }
         />
         <section className={styles.common}></section>
         <TodoList
