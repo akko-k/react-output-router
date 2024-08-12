@@ -78,6 +78,7 @@ export const TodoTemplate = () => {
       </section>
       <section className={styles.common}>
         <SearchForm
+          value={searchKeyword}
           placeholder={'TODOを検索'}
           handleChangeSearchKeyword={
             handleChangeSearchKeyword

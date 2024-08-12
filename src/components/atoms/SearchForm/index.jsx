@@ -10,7 +10,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
  * @returns {JSX.Element} The rendered SearchForm component.
  */
 export const SearchForm = (props) => {
-  const { placeholder, handleChangeSearchKeyword } = props;
+  const {
+    searchKeyword,
+    placeholder,
+    handleChangeSearchKeyword,
+  } = props;
   return (
     <div className={styles.searchContainer}>
       <FontAwesomeIcon
@@ -20,6 +24,7 @@ export const SearchForm = (props) => {
       <input
         className={styles.input}
         type="text"
+        value={searchKeyword}
         placeholder={placeholder}
         onChange={handleChangeSearchKeyword}
       />
