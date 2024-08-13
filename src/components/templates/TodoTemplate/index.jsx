@@ -12,15 +12,15 @@ import { useTodo } from '../../../hooks/useTodo';
  * @returns {JSX.Element} TodoTemplate component.
  */
 export const TodoTemplate = () => {
-  const {
-    addInputValue,
-    searchKeyword,
-    onChangeAddInputValue,
-    filteredTodos,
-    handleAddNewTodo,
-    handleDeleteTodo,
-    handleChangeSearchKeyword,
-  } = useTodo();
+  const [
+    { addInputValue, searchKeyword, onChangeAddInputValue },
+    {
+      filteredTodos,
+      handleAddNewTodo,
+      handleDeleteTodo,
+      handleChangeSearchKeyword,
+    },
+  ] = useTodo();
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>TODO List</h1>
