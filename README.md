@@ -1,7 +1,8 @@
 # react-output-first
 Reactアウトプットサンプル
 
-useState, Propsのみの状態管理でTodoリストの基本的な機能を構築
+useState, Propsのみの状態管理で作成したTodoリストに対し、
+コンポーネントに定義した状態とロジックをカスタムフックに移行したアプリケーション
 
 
 ## 目次
