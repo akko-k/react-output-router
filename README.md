@@ -1,4 +1,4 @@
-# react-output-first
+# react-output-context
 Reactアウトプットサンプル
 
 状態管理をcontext APIを使用した構成
