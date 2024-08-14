@@ -1,8 +1,7 @@
 # react-output-first
 Reactアウトプットサンプル
 
-useState, Propsのみの状態管理で作成したTodoリストに対し、
-コンポーネントに定義した状態とロジックをカスタムフックに移行したアプリケーション
+状態管理をcontext APIを使用した構成
 
 
 ## 目次
