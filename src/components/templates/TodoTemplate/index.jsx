@@ -3,7 +3,8 @@ import styles from './styles.module.css';
 import { TodoList } from '../../organisms/TodoList';
 import { AddTodo } from '../../organisms/AddTodo';
 import { SearchForm } from '../../atoms/SearchForm';
-import { useTodo } from '../../../hooks/useTodo';
+import { useContext } from 'react';
+import { TodoContext } from '../../../contexts/TodoContext';
 
 /**
  * TodoTemplate component.
@@ -12,15 +13,16 @@ import { useTodo } from '../../../hooks/useTodo';
  * @returns {JSX.Element} TodoTemplate component.
  */
 export const TodoTemplate = () => {
-  const [
-    { addInputValue, searchKeyword, onChangeAddInputValue },
-    {
-      filteredTodos,
-      handleAddNewTodo,
-      handleDeleteTodo,
-      handleChangeSearchKeyword,
-    },
-  ] = useTodo();
+  const {
+    addInputValue,
+    searchKeyword,
+    onChangeAddInputValue,
+    filteredTodos,
+    handleAddNewTodo,
+    handleDeleteTodo,
+    handleChangeSearchKeyword,
+  } = useContext(TodoContext);
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>TODO List</h1>

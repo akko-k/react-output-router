@@ -58,18 +58,13 @@ export const useTodo = () => {
   const handleChangeSearchKeyword = (e) =>
     setSearchKeyword(e.target.value);
 
-  const status = {
+  return {
     addInputValue,
     searchKeyword,
     onChangeAddInputValue,
-  };
-
-  const action = {
     filteredTodos,
     handleAddNewTodo,
     handleDeleteTodo,
     handleChangeSearchKeyword,
   };
-
-  return [status, action];
 };
