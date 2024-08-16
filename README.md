@@ -2,7 +2,7 @@
 
 Reactアウトプットサンプル
 
-react-index-domを用いてSPA構成にしたアプリケーション
+react-router-domを用いてSPA構成にしたアプリケーション
 
 状態管理はcontext apiを使用
 
@@ -47,6 +47,7 @@ yarn dev
 ### 2-2. 構成技術
 - react: 18.3.1
 - react-dom: 18.3.1
+- react-router-dom: 6.26.1
 - vite: 5.3.5
 - @fortawesome/react-fontawesome: 0.2.2
 - @fortawesome/free-solid-svg-icons: 6.6.0
