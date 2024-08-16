@@ -1,7 +1,10 @@
-# react-output-context
+# react-output-router
+
 Reactアウトプットサンプル
 
-状態管理をcontext APIを使用した構成
+react-index-domを用いてSPA構成にしたアプリケーション
+
+状態管理はcontext apiを使用
 
 
 ## 目次
@@ -37,6 +40,8 @@ yarn dev
   - Todo一覧表示
   - Todo検索処理
   - Todo新規登録処理
+  - Todo詳細表示
+  - Todo編集処理
   - Todo削除処理
 
 ### 2-2. 構成技術
