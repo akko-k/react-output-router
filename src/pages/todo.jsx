@@ -3,6 +3,6 @@ import { TodoProvider } from '../contexts/TodoContext';
 
 export const TodoPage = () => (
   <TodoProvider>
-    <TodoTemplate />;
+    <TodoTemplate />
   </TodoProvider>
 );
