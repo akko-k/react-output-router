@@ -6,7 +6,7 @@ ul {
 
 li {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   padding: 10px;
   border-bottom: 1px solid #ddd;
@@ -17,11 +17,17 @@ li {
   border-bottom: none;
 } */
 
-.deleteIcon {
+.icons {
+  display: flex;
+  gap: 8px; /* アイコン間の間隔を調整 */
+  margin-left: auto;
+}
+
+.icon {
   cursor: pointer;
   /* font-size: 20px; アイコンのサイズ */
 }
 
-.deleteIcon:hover {
+.icon:hover {
   color: #777777;
 }

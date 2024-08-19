@@ -33,7 +33,7 @@ export const useTodo = () => {
   //TODOリストに新規TODOリストを追加
   const handleAddNewTodo = () => {
     if (addInputValue) {
-      const nextUniqueId = uniqueId + 1;
+      const nextUniqueId = uniqueId;
       const newTodo = [
         ...todos,
         {

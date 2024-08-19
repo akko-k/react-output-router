@@ -1,3 +1,3 @@
-import { TodoDeailTemplate } from '../components/templates/TodoDetailTemplate';
+import { TodoDetailTemplate } from '../components/templates/TodoDetailTemplate';
 
-export const TodoDetailPage = () => <TodoDeailTemplate />;
+export const TodoDetailPage = () => <TodoDetailTemplate />;
