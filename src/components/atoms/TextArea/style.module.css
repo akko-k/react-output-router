@@ -1,0 +1,25 @@
+.text {
+  border: 1px solid #c0c0c0;
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 20px;
+  border-radius: 5px;
+  /* overflow-wrap: break-word; /* テキストを折り返す */
+  /* word-wrap: break-word; 古いブラウザ向けの互換プロパティ */
+  /* word-break: break-word; テキストが途切れた場合でも折り返す */
+  resize: none;
+  overflow-y: auto; /* 縦方向のスクロールを許可 */
+  white-space: pre-wrap; /* テキストを改行して表示する */
+  display: block;
+}
+
+.text::placeholder {
+  color: #c0c0c0;
+}
+
+.text:disabled {
+  background-color: white;
+  /* border-bottom: 1px solid #ddd; */
+}
