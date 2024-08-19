@@ -14,6 +14,7 @@ export const TextArea = ({
         disabled={disabled}
         placeholder={placeholder}
         onChange={onChange}
+        readOnly={!onChange}
       />
     </div>
   );
