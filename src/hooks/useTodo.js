@@ -49,9 +49,7 @@ export const useTodo = () => {
 
   //TODOリストを削除
   const handleDeleteTodo = (id) => {
-    const newTodo = todos.filter(
-      (todo, index) => index !== id
-    );
+    const newTodo = todos.filter((todo) => todo.id !== id);
     setTodos(newTodo);
   };
   // 検索ワードを更新
