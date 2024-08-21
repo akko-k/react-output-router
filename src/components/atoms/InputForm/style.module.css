@@ -9,10 +9,6 @@
   flex: 1;
 }
 
-.input::placeholder {
-  /* color: #c0c0c0; */
-}
-
 .input:disabled {
   background-color: white;
   border-bottom: 1px solid #ddd;

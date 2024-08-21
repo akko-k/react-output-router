@@ -11,7 +11,7 @@ export const AddTodo = (props) => {
     placeholder,
     addInputValue,
     onChangeAddInputValue,
-    handleAddNewTodo,
+    addNewTodo,
   } = props;
   return (
     <div className={styles.container}>
@@ -24,7 +24,7 @@ export const AddTodo = (props) => {
       />
       <button
         className={styles.button}
-        onClick={handleAddNewTodo}>
+        onClick={addNewTodo}>
         追加
       </button>
     </div>

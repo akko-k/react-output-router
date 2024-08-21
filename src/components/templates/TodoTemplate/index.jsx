@@ -18,8 +18,8 @@ export const TodoTemplate = () => {
     searchKeyword,
     onChangeAddInputValue,
     filteredTodos,
-    handleAddNewTodo,
-    handleDeleteTodo,
+    addNewTodo,
+    deleteTodo,
     handleChangeSearchKeyword,
   } = useContext(TodoContext);
 
@@ -31,7 +31,7 @@ export const TodoTemplate = () => {
           placeholder={'新しいTODO'}
           addInputValue={addInputValue}
           onChangeAddInputValue={onChangeAddInputValue}
-          handleAddNewTodo={handleAddNewTodo}
+          addNewTodo={addNewTodo}
         />
       </section>
       <section className={styles.common}>
@@ -45,7 +45,7 @@ export const TodoTemplate = () => {
         <section className={styles.common}></section>
         <TodoList
           filteredTodos={filteredTodos}
-          handleDeleteTodo={handleDeleteTodo}
+          deleteTodo={deleteTodo}
         />
       </section>
     </div>

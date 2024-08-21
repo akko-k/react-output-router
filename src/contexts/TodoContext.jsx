@@ -17,8 +17,9 @@ export const TodoProvider = ({ children }) => {
     searchKeyword,
     onChangeAddInputValue,
     filteredTodos,
-    handleAddNewTodo,
-    handleDeleteTodo,
+    addNewTodo,
+    updateTodo,
+    deleteTodo,
     handleChangeSearchKeyword,
   } = useTodo();
 
@@ -29,8 +30,9 @@ export const TodoProvider = ({ children }) => {
         searchKeyword,
         onChangeAddInputValue,
         filteredTodos,
-        handleAddNewTodo,
-        handleDeleteTodo,
+        addNewTodo,
+        updateTodo,
+        deleteTodo,
         handleChangeSearchKeyword,
       }}>
       {children}

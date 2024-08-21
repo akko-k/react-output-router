@@ -9,7 +9,7 @@ import {
  */
 export const useTodo = () => {
   //todoリスト
-  const [todos, setTodos] = useState(INIT_TODO_LIST);
+  const [todoList, setTodoList] = useState(INIT_TODO_LIST);
   //採番ID
   const [uniqueId, setUniqueId] = useState(INIT_UNIQUE_ID);
   //新規TODOリスト入力値
@@ -23,34 +23,51 @@ export const useTodo = () => {
 
   //検索ワードに一致するTODOリストを取得
   const filteredTodos = useMemo(() => {
-    return todos.filter((todo) =>
+    return todoList.filter((todo) =>
       todo.title
         .toLowerCase()
         .includes(searchKeyword.toLowerCase())
     );
-  }, [todos, searchKeyword]);
+  }, [todoList, searchKeyword]);
 
   //TODOリストに新規TODOリストを追加
-  const handleAddNewTodo = () => {
+  const addNewTodo = () => {
     if (addInputValue) {
-      const nextUniqueId = uniqueId;
-      const newTodo = [
-        ...todos,
+      const nextUniqueId = uniqueId + 1;
+      const newTodoList = [
+        ...todoList,
         {
           id: nextUniqueId,
           title: addInputValue,
         },
       ];
       setUniqueId(nextUniqueId);
-      setTodos(newTodo);
+      setTodoList(newTodoList);
       setAddInputValue('');
     }
   };
 
+  //TODOリストを更新
+  const updateTodo = (id, newTitle, newContent) => {
+    const updatedTodoList = todoList.map((todo) => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          title: newTitle,
+          content: newContent,
+        };
+      }
+      return todo;
+    });
+    setTodoList(updatedTodoList);
+  };
+
   //TODOリストを削除
-  const handleDeleteTodo = (id) => {
-    const newTodo = todos.filter((todo) => todo.id !== id);
-    setTodos(newTodo);
+  const deleteTodo = (id) => {
+    const newTodoList = todoList.filter(
+      (todo) => todo.id !== id
+    );
+    setTodoList(newTodoList);
   };
   // 検索ワードを更新
   const handleChangeSearchKeyword = (e) =>
@@ -61,8 +78,9 @@ export const useTodo = () => {
     searchKeyword,
     onChangeAddInputValue,
     filteredTodos,
-    handleAddNewTodo,
-    handleDeleteTodo,
+    addNewTodo,
+    updateTodo,
+    deleteTodo,
     handleChangeSearchKeyword,
   };
 };

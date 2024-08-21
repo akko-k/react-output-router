@@ -19,7 +19,7 @@ li {
 
 .icons {
   display: flex;
-  gap: 8px; /* アイコン間の間隔を調整 */
+  gap: 20px; /* アイコン間の間隔を調整 */
   margin-left: auto;
 }
 
