@@ -22,7 +22,7 @@ export const useTodo = () => {
     setAddInputValue(e.target.value);
 
   //検索ワードに一致するTODOリストを取得
-  const filteredTodos = useMemo(() => {
+  const filteredTodoList = useMemo(() => {
     return todoList.filter((todo) =>
       todo.title
         .toLowerCase()
@@ -77,7 +77,8 @@ export const useTodo = () => {
     addInputValue,
     searchKeyword,
     onChangeAddInputValue,
-    filteredTodos,
+    todoList,
+    filteredTodoList,
     addNewTodo,
     updateTodo,
     deleteTodo,

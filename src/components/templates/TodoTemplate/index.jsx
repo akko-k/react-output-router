@@ -17,7 +17,7 @@ export const TodoTemplate = () => {
     addInputValue,
     searchKeyword,
     onChangeAddInputValue,
-    filteredTodos,
+    todoList,
     addNewTodo,
     deleteTodo,
     handleChangeSearchKeyword,
@@ -44,7 +44,7 @@ export const TodoTemplate = () => {
         />
         <section className={styles.common}></section>
         <TodoList
-          filteredTodos={filteredTodos}
+          todoList={todoList}
           deleteTodo={deleteTodo}
         />
       </section>

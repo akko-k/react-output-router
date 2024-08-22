@@ -7,15 +7,18 @@ import { TextArea } from '../../atoms/TextArea';
 
 export const TodoDetailTemplate = () => {
   const { id } = useParams();
-  const { filteredTodos } = useContext(TodoContext);
-  //   console.log(filteredTodos);
-  //   console.log(id);
-  const todo = filteredTodos.find(
+  const { todoList } = useContext(TodoContext);
+
+  const todo = todoList.find(
     (todo) => todo.id === Number(id)
   );
 
   if (!todo) {
-    return <div>TODOが見つかりませんでした。</div>;
+    return (
+      <div className={styles.container}>
+        <div>TODOが見つかりませんでした。</div>
+      </div>
+    );
   }
   return (
     <div className={styles.container}>

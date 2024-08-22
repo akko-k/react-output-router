@@ -1,49 +1,29 @@
 import styles from './styles.module.css';
-import { useParams, useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { TodoContext } from '../../../contexts/TodoContext';
+
+import { useTodoEditTemplate } from './useTodoEditTemplate';
 import { InputForm } from '../../atoms/InputForm';
 import { TextArea } from '../../atoms/TextArea';
 import { Button } from '../../atoms/Button';
-import { useState } from 'react';
+import { useContext } from 'react';
+import { TodoContext } from '../../../contexts/TodoContext';
 
 export const TodoEditTemplate = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-
-  const { filteredTodos, updateTodo } =
-    useContext(TodoContext);
-
-  const todo = filteredTodos.find(
-    (todo) => todo.id === Number(id)
-  );
-
-  const [inputTitle, setInputTitle] = useState(
-    todo?.title || ''
-  );
-  const [inputContent, setInputContent] = useState(
-    todo?.content || ''
-  );
-
-  //title 更新
-  const handleChangeTitle = (e) =>
-    setInputTitle(e.target.value);
-
-  //content 更新
-  const handleChangeContent = (e) =>
-    setInputContent(e.target.value);
-
-  const handleUpdateTodo = (e) => {
-    e.preventDefault();
-    console.log('handleUpdateTodo');
-    if (!!todo.id && inputTitle && inputContent) {
-      updateTodo(todo.id, inputTitle, inputContent);
-      navigate('/');
-    }
-  };
+  const { todoList, updateTodo } = useContext(TodoContext);
+  const {
+    todo,
+    inputTitle,
+    inputContent,
+    handleChangeTitle,
+    handleChangeContent,
+    handleUpdateTodo,
+  } = useTodoEditTemplate({ todoList, updateTodo });
 
   if (!todo) {
-    return <div>TODOが見つかりませんでした。</div>;
+    return (
+      <div className={styles.container}>
+        <div>TODOが見つかりませんでした。</div>
+      </div>
+    );
   }
   return (
     <form

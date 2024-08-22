@@ -14,7 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
  * @returns {JSX.Element}The TodoList component.
  */
 export const TodoList = (props) => {
-  const { filteredTodos, deleteTodo } = props;
+  const { todoList, deleteTodo } = props;
   const navigate = useNavigate();
 
   const handleMoveEditPage = (id) => {
@@ -27,7 +27,7 @@ export const TodoList = (props) => {
   return (
     <>
       <ul>
-        {filteredTodos.map((todo) => (
+        {todoList.map((todo) => (
           <li key={todo.id}>
             <span>{todo.title}</span>
             <div className={styles.icons}>
