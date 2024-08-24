@@ -12,14 +12,8 @@ export const useTodo = () => {
   const [todoList, setTodoList] = useState(INIT_TODO_LIST);
   //採番ID
   const [uniqueId, setUniqueId] = useState(INIT_UNIQUE_ID);
-  //新規TODOリスト入力値
-  const [addInputValue, setAddInputValue] = useState('');
   //検索ワード
   const [searchKeyword, setSearchKeyword] = useState('');
-
-  //新規TODOリスト入力値を更新
-  const onChangeAddInputValue = (e) =>
-    setAddInputValue(e.target.value);
 
   //検索ワードに一致するTODOリストを取得
   const filteredTodoList = useMemo(() => {
@@ -31,20 +25,18 @@ export const useTodo = () => {
   }, [todoList, searchKeyword]);
 
   //TODOリストに新規TODOリストを追加
-  const addNewTodo = () => {
-    if (addInputValue) {
-      const nextUniqueId = uniqueId + 1;
-      const newTodoList = [
-        ...todoList,
-        {
-          id: nextUniqueId,
-          title: addInputValue,
-        },
-      ];
-      setUniqueId(nextUniqueId);
-      setTodoList(newTodoList);
-      setAddInputValue('');
-    }
+  const addTodo = (inputTitle, inputContent) => {
+    const nextUniqueId = uniqueId + 1;
+    const newTodoList = [
+      ...todoList,
+      {
+        id: nextUniqueId,
+        title: inputTitle,
+        content: inputContent,
+      },
+    ];
+    setUniqueId(nextUniqueId);
+    setTodoList(newTodoList);
   };
 
   //TODOリストを更新
@@ -74,12 +66,10 @@ export const useTodo = () => {
     setSearchKeyword(e.target.value);
 
   return {
-    addInputValue,
     searchKeyword,
-    onChangeAddInputValue,
     todoList,
     filteredTodoList,
-    addNewTodo,
+    addTodo,
     updateTodo,
     deleteTodo,
     handleChangeSearchKeyword,

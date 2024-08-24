@@ -1,7 +1,6 @@
 import styles from './styles.module.css';
 
 import { TodoList } from '../../organisms/TodoList';
-import { AddTodo } from '../../organisms/AddTodo';
 import { SearchForm } from '../../atoms/SearchForm';
 import { useContext } from 'react';
 import { TodoContext } from '../../../contexts/TodoContext';
@@ -14,11 +13,8 @@ import { TodoContext } from '../../../contexts/TodoContext';
  */
 export const TodoTemplate = () => {
   const {
-    addInputValue,
     searchKeyword,
-    onChangeAddInputValue,
-    todoList,
-    addNewTodo,
+    filteredTodoList,
     deleteTodo,
     handleChangeSearchKeyword,
   } = useContext(TodoContext);
@@ -26,14 +22,7 @@ export const TodoTemplate = () => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>TODO List</h1>
-      <section className={styles.common}>
-        <AddTodo
-          placeholder={'新しいTODO'}
-          addInputValue={addInputValue}
-          onChangeAddInputValue={onChangeAddInputValue}
-          addNewTodo={addNewTodo}
-        />
-      </section>
+      <section className={styles.common}></section>
       <section className={styles.common}>
         <SearchForm
           value={searchKeyword}
@@ -44,7 +33,7 @@ export const TodoTemplate = () => {
         />
         <section className={styles.common}></section>
         <TodoList
-          todoList={todoList}
+          filteredTodoList={filteredTodoList}
           deleteTodo={deleteTodo}
         />
       </section>

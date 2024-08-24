@@ -13,11 +13,10 @@ export const TodoContext = createContext({});
  */
 export const TodoProvider = ({ children }) => {
   const {
-    addInputValue,
     searchKeyword,
-    onChangeAddInputValue,
     todoList,
-    addNewTodo,
+    filteredTodoList,
+    addTodo,
     updateTodo,
     deleteTodo,
     handleChangeSearchKeyword,
@@ -26,11 +25,10 @@ export const TodoProvider = ({ children }) => {
   return (
     <TodoContext.Provider
       value={{
-        addInputValue,
         searchKeyword,
-        onChangeAddInputValue,
         todoList,
-        addNewTodo,
+        filteredTodoList,
+        addTodo,
         updateTodo,
         deleteTodo,
         handleChangeSearchKeyword,
