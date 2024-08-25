@@ -5,6 +5,7 @@ import { SearchForm } from '../../atoms/SearchForm';
 import { useContext } from 'react';
 import { TodoContext } from '../../../contexts/TodoContext';
 import { Navigation } from '../../molecules/Navigation';
+import { useTodoTemplate } from './useTodoTemplate';
 
 /**
  * TodoTemplate component.
@@ -13,12 +14,13 @@ import { Navigation } from '../../molecules/Navigation';
  * @returns {JSX.Element} TodoTemplate component.
  */
 export const TodoTemplate = () => {
+  const { todoList, deleteTodo } = useContext(TodoContext);
+
   const {
     searchKeyword,
     filteredTodoList,
-    deleteTodo,
     handleChangeSearchKeyword,
-  } = useContext(TodoContext);
+  } = useTodoTemplate({ todoList });
 
   return (
     <div className={styles.container}>

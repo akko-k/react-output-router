@@ -12,26 +12,16 @@ export const TodoContext = createContext({});
  * @returns {JSX.Element}
  */
 export const TodoProvider = ({ children }) => {
-  const {
-    searchKeyword,
-    todoList,
-    filteredTodoList,
-    addTodo,
-    updateTodo,
-    deleteTodo,
-    handleChangeSearchKeyword,
-  } = useTodo();
+  const { todoList, addTodo, updateTodo, deleteTodo } =
+    useTodo();
 
   return (
     <TodoContext.Provider
       value={{
-        searchKeyword,
         todoList,
-        filteredTodoList,
         addTodo,
         updateTodo,
         deleteTodo,
-        handleChangeSearchKeyword,
       }}>
       {children}
     </TodoContext.Provider>

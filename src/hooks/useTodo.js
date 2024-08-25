@@ -12,17 +12,6 @@ export const useTodo = () => {
   const [todoList, setTodoList] = useState(INIT_TODO_LIST);
   //採番ID
   const [uniqueId, setUniqueId] = useState(INIT_UNIQUE_ID);
-  //検索ワード
-  const [searchKeyword, setSearchKeyword] = useState('');
-
-  //検索ワードに一致するTODOリストを取得
-  const filteredTodoList = useMemo(() => {
-    return todoList.filter((todo) =>
-      todo.title
-        .toLowerCase()
-        .includes(searchKeyword.toLowerCase())
-    );
-  }, [todoList, searchKeyword]);
 
   //TODOリストに新規TODOリストを追加
   const addTodo = (inputTitle, inputContent) => {
@@ -61,17 +50,11 @@ export const useTodo = () => {
     );
     setTodoList(newTodoList);
   };
-  // 検索ワードを更新
-  const handleChangeSearchKeyword = (e) =>
-    setSearchKeyword(e.target.value);
 
   return {
-    searchKeyword,
     todoList,
-    filteredTodoList,
     addTodo,
     updateTodo,
     deleteTodo,
-    handleChangeSearchKeyword,
   };
 };
