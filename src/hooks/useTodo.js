@@ -44,11 +44,16 @@ export const useTodo = () => {
   };
 
   //Todoリストを削除
-  const deleteTodo = (id) => {
-    const newTodoList = todoList.filter(
-      (todo) => todo.id !== id
+  const deleteTodo = (id, title) => {
+    const confirmed = window.confirm(
+      `「${title}」のTodoを削除しますか？`
     );
-    setTodoList(newTodoList);
+    if (confirmed) {
+      const newTodoList = todoList.filter(
+        (todo) => todo.id !== id
+      );
+      setTodoList(newTodoList);
+    }
   };
 
   return {

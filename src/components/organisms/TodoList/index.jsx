@@ -48,7 +48,9 @@ export const TodoList = ({
               />
               <FontAwesomeIcon
                 icon={faTrashAlt}
-                onClick={() => deleteTodo(todo.id)}
+                onClick={() =>
+                  deleteTodo(todo.id, todo.title)
+                }
                 className={styles.icon}
               />
             </div>
