@@ -11,7 +11,7 @@ export const useTodoTemplate = ({ todoList }) => {
   const handleChangeSearchKeyword = (e) =>
     setSearchKeyword(e.target.value);
 
-  //検索ワードに一致するTODOリストを取得
+  //検索ワードに一致するTodoリストを取得
   const filteredTodoList = useMemo(() => {
     return todoList.filter((todo) =>
       todo.title

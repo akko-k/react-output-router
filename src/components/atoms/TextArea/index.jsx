@@ -4,18 +4,14 @@ export const TextArea = ({
   disabled = false,
   placeholder,
   onChange,
-}) => {
-  return (
-    <div>
-      <input
-        className={style.text}
-        type="text"
-        value={value}
-        disabled={disabled}
-        placeholder={placeholder}
-        onChange={onChange}
-        readOnly={!onChange}
-      />
-    </div>
-  );
-};
+}) => (
+  <textarea
+    className={style.text}
+    type="text"
+    value={value}
+    disabled={disabled}
+    placeholder={placeholder}
+    onChange={onChange}
+    readOnly={!onChange}
+  />
+);

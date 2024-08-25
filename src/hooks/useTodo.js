@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import {
   INIT_TODO_LIST,
   INIT_UNIQUE_ID,
@@ -13,7 +13,7 @@ export const useTodo = () => {
   //採番ID
   const [uniqueId, setUniqueId] = useState(INIT_UNIQUE_ID);
 
-  //TODOリストに新規TODOリストを追加
+  //Todoリストに新規Todoリストを追加
   const addTodo = (inputTitle, inputContent) => {
     const nextUniqueId = uniqueId + 1;
     const newTodoList = [
@@ -28,7 +28,7 @@ export const useTodo = () => {
     setTodoList(newTodoList);
   };
 
-  //TODOリストを更新
+  //Todoリストを更新
   const updateTodo = (id, newTitle, newContent) => {
     const updatedTodoList = todoList.map((todo) => {
       if (todo.id === id) {
@@ -43,7 +43,7 @@ export const useTodo = () => {
     setTodoList(updatedTodoList);
   };
 
-  //TODOリストを削除
+  //Todoリストを削除
   const deleteTodo = (id) => {
     const newTodoList = todoList.filter(
       (todo) => todo.id !== id

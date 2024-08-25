@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { TodoContext } from '../../../contexts/TodoContext';
 import { InputForm } from '../../atoms/InputForm';
 import { TextArea } from '../../atoms/TextArea';
-import { Navigation } from '../../molecules/Navigation';
+import { BaseLayout } from '../../organisms/BaseLayout';
 
 export const TodoDetailTemplate = () => {
   const { id } = useParams();
@@ -17,20 +17,20 @@ export const TodoDetailTemplate = () => {
   if (!todo) {
     return (
       <div className={styles.container}>
-        <div>TODOが見つかりませんでした。</div>
+        <div>Todoが見つかりませんでした。</div>
       </div>
     );
   }
   return (
-    <div className={styles.container}>
-      <Navigation />
-      <h1 className={styles.title}>TODO 詳細</h1>
-      <section className={styles.common}>
-        <InputForm value={todo.title} disabled={true} />
-      </section>
-      <section className={styles.common}>
-        <TextArea value={todo.content} disabled={true} />
-      </section>
-    </div>
+    <BaseLayout title="Todo Detail">
+      <div className={styles.container}>
+        <section className={styles.common}>
+          <InputForm value={todo.title} disabled={true} />
+        </section>
+        <section className={styles.common}>
+          <TextArea value={todo.content} disabled={true} />
+        </section>
+      </div>
+    </BaseLayout>
   );
 };

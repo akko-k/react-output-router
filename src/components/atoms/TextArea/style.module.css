@@ -6,12 +6,7 @@
   box-sizing: border-box;
   font-size: 20px;
   border-radius: 5px;
-  /* overflow-wrap: break-word; /* テキストを折り返す */
-  /* word-wrap: break-word; 古いブラウザ向けの互換プロパティ */
-  /* word-break: break-word; テキストが途切れた場合でも折り返す */
   resize: none;
-  overflow-y: auto; /* 縦方向のスクロールを許可 */
-  white-space: pre-wrap; /* テキストを改行して表示する */
   display: block;
 }
 
@@ -21,5 +16,4 @@
 
 .text:disabled {
   background-color: white;
-  /* border-bottom: 1px solid #ddd; */
 }

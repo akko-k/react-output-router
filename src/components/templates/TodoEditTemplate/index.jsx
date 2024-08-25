@@ -6,7 +6,7 @@ import { TextArea } from '../../atoms/TextArea';
 import { CommonButton } from '../../atoms/CommonButton';
 import { useContext } from 'react';
 import { TodoContext } from '../../../contexts/TodoContext';
-import { Navigation } from '../../molecules/Navigation';
+import { BaseLayout } from '../../organisms/BaseLayout';
 
 export const TodoEditTemplate = () => {
   const { todoList, updateTodo } = useContext(TodoContext);
@@ -22,33 +22,33 @@ export const TodoEditTemplate = () => {
   if (!todo) {
     return (
       <div className={styles.container}>
-        <div>TODOが見つかりませんでした。</div>
+        <div>Todoが見つかりませんでした。</div>
       </div>
     );
   }
   return (
-    <form
-      className={styles.container}
-      onSubmit={handleUpdateTodo}>
-      <Navigation />
-      <h1 className={styles.title}>TODO 編集</h1>
-      <section className={styles.common}>
-        <InputForm
-          value={inputTitle}
-          placeholder={'タイトル'}
-          onChange={handleChangeTitle}
-        />
-      </section>
-      <section className={styles.common}>
-        <TextArea
-          value={inputContent}
-          placeholder={'内容'}
-          onChange={handleChangeContent}
-        />
-      </section>
-      <section className={styles.common}>
-        <CommonButton label="更新" type="submit" />
-      </section>
-    </form>
+    <BaseLayout title="Todo Edit">
+      <form
+        className={styles.container}
+        onSubmit={handleUpdateTodo}>
+        <section className={styles.common}>
+          <InputForm
+            value={inputTitle}
+            placeholder={'タイトル'}
+            onChange={handleChangeTitle}
+          />
+        </section>
+        <section className={styles.common}>
+          <TextArea
+            value={inputContent}
+            placeholder={'内容'}
+            onChange={handleChangeContent}
+          />
+        </section>
+        <section className={styles.common}>
+          <CommonButton label="更新" type="submit" />
+        </section>
+      </form>
+    </BaseLayout>
   );
 };
