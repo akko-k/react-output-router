@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { TodoContext } from '../../../contexts/TodoContext';
 import { InputForm } from '../../atoms/InputForm';
 import { TextArea } from '../../atoms/TextArea';
+import { Navigation } from '../../molecules/Navigation';
 
 export const TodoDetailTemplate = () => {
   const { id } = useParams();
@@ -22,6 +23,7 @@ export const TodoDetailTemplate = () => {
   }
   return (
     <div className={styles.container}>
+      <Navigation />
       <h1 className={styles.title}>TODO 詳細</h1>
       <section className={styles.common}>
         <InputForm value={todo.title} disabled={true} />

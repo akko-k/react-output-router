@@ -1,5 +1,5 @@
 import styles from './style.module.css';
-export const Button = ({ type, label, onClick }) => {
+export const CommonButton = ({ type, label, onClick }) => {
   return (
     <div>
       <button

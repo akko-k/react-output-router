@@ -3,9 +3,10 @@ import styles from './styles.module.css';
 import { useTodoEditTemplate } from './useTodoEditTemplate';
 import { InputForm } from '../../atoms/InputForm';
 import { TextArea } from '../../atoms/TextArea';
-import { Button } from '../../atoms/Button';
+import { CommonButton } from '../../atoms/CommonButton';
 import { useContext } from 'react';
 import { TodoContext } from '../../../contexts/TodoContext';
+import { Navigation } from '../../molecules/Navigation';
 
 export const TodoEditTemplate = () => {
   const { todoList, updateTodo } = useContext(TodoContext);
@@ -29,6 +30,7 @@ export const TodoEditTemplate = () => {
     <form
       className={styles.container}
       onSubmit={handleUpdateTodo}>
+      <Navigation />
       <h1 className={styles.title}>TODO 編集</h1>
       <section className={styles.common}>
         <InputForm
@@ -45,7 +47,7 @@ export const TodoEditTemplate = () => {
         />
       </section>
       <section className={styles.common}>
-        <Button label="更新" type="submit" />
+        <CommonButton label="更新" type="submit" />
       </section>
     </form>
   );

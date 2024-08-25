@@ -3,7 +3,7 @@ import styles from './styles.module.css';
 import { useTodoCreateTemplate } from './useTodoCreateTemplate';
 import { InputForm } from '../../atoms/InputForm';
 import { TextArea } from '../../atoms/TextArea';
-import { Button } from '../../atoms/Button';
+import { CommonButton } from '../../atoms/CommonButton';
 import { useContext } from 'react';
 import { TodoContext } from '../../../contexts/TodoContext';
 
@@ -37,7 +37,7 @@ export const TodoCreateTemplate = () => {
         />
       </section>
       <section className={styles.common}>
-        <Button label="追加" type="submit" />
+        <CommonButton label="追加" type="submit" />
       </section>
     </form>
   );
