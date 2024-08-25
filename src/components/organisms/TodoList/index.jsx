@@ -1,4 +1,4 @@
-import styles from './style.module.css';
+import styles from './styles.module.css';
 import { useNavigate } from 'react-router-dom';
 import { NAVIGATION_PATH } from '../../../constants/navigations';
 import {

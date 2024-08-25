@@ -1,4 +1,4 @@
-import styles from './style.module.css';
+import styles from './styles.module.css';
 import { NavigationLink } from '../../atoms/NavigationLink';
 
 export const Navigation = () => {
