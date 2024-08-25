@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import {
   INIT_TODO_LIST,
   INIT_UNIQUE_ID,
@@ -14,47 +14,56 @@ export const useTodo = () => {
   const [uniqueId, setUniqueId] = useState(INIT_UNIQUE_ID);
 
   //Todoリストに新規Todoリストを追加
-  const addTodo = (inputTitle, inputContent) => {
-    const nextUniqueId = uniqueId + 1;
-    const newTodoList = [
-      ...todoList,
-      {
-        id: nextUniqueId,
-        title: inputTitle,
-        content: inputContent,
-      },
-    ];
-    setUniqueId(nextUniqueId);
-    setTodoList(newTodoList);
-  };
+  const addTodo = useCallback(
+    (inputTitle, inputContent) => {
+      const nextUniqueId = uniqueId + 1;
+      const newTodoList = [
+        ...todoList,
+        {
+          id: nextUniqueId,
+          title: inputTitle,
+          content: inputContent,
+        },
+      ];
+      setUniqueId(nextUniqueId);
+      setTodoList(newTodoList);
+    },
+    [todoList, uniqueId]
+  );
 
   //Todoリストを更新
-  const updateTodo = (id, newTitle, newContent) => {
-    const updatedTodoList = todoList.map((todo) => {
-      if (todo.id === id) {
-        return {
-          ...todo,
-          title: newTitle,
-          content: newContent,
-        };
-      }
-      return todo;
-    });
-    setTodoList(updatedTodoList);
-  };
+  const updateTodo = useCallback(
+    (id, newTitle, newContent) => {
+      const updatedTodoList = todoList.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            title: newTitle,
+            content: newContent,
+          };
+        }
+        return todo;
+      });
+      setTodoList(updatedTodoList);
+    },
+    [todoList]
+  );
 
   //Todoリストを削除
-  const deleteTodo = (id, title) => {
-    const confirmed = window.confirm(
-      `「${title}」のTodoを削除しますか？`
-    );
-    if (confirmed) {
-      const newTodoList = todoList.filter(
-        (todo) => todo.id !== id
+  const deleteTodo = useCallback(
+    (id, title) => {
+      const confirmed = window.confirm(
+        `「${title}」のTodoを削除しますか？`
       );
-      setTodoList(newTodoList);
-    }
-  };
+      if (confirmed) {
+        const newTodoList = todoList.filter(
+          (todo) => todo.id !== id
+        );
+        setTodoList(newTodoList);
+      }
+    },
+    [todoList]
+  );
 
   return {
     todoList,
