@@ -3,22 +3,23 @@ import { TodoPage } from '../pages/todo';
 import { TodoCraetePage } from '../pages/create';
 import { TodoDetailPage } from '../pages/detail';
 import { TodoEditPage } from '../pages/edit';
+import { NAVIGATION_LIST } from '../constants/navigations';
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: NAVIGATION_LIST.TOP,
     element: <TodoPage />,
   },
   {
-    path: '/create',
+    path: NAVIGATION_LIST.CREATE,
     element: <TodoCraetePage />,
   },
   {
-    path: '/detail/:id',
+    path: NAVIGATION_LIST.DETAIL,
     element: <TodoDetailPage />,
   },
   {
-    path: '/edit/:id',
+    path: NAVIGATION_LIST.EDIT,
     element: <TodoEditPage />,
   },
 ]);

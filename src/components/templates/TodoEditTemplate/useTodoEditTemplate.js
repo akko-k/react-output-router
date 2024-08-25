@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { NAVIGATION_PATH } from '../../../constants/navigations';
 
 /**
  * useTodoEditTemplate
@@ -34,7 +35,7 @@ export const useTodoEditTemplate = ({
     e.preventDefault();
     if (!!todo.id && inputTitle && inputContent) {
       updateTodo(todo.id, inputTitle, inputContent);
-      navigate('/');
+      navigate(NAVIGATION_PATH.TOP);
     }
   };
 

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { NAVIGATION_PATH } from '../../../constants/navigations';
 
 /**
  * useTodoCreateTemplate
@@ -22,7 +23,7 @@ export const useTodoCreateTemplate = ({ addTodo }) => {
     e.preventDefault();
     if (inputTitle && inputContent) {
       addTodo(inputTitle, inputContent);
-      navigate('/');
+      navigate(NAVIGATION_PATH.TOP);
     }
   };
 

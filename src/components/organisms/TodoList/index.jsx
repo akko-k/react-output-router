@@ -1,5 +1,6 @@
 import styles from './style.module.css';
 import { useNavigate } from 'react-router-dom';
+import { NAVIGATION_PATH } from '../../../constants/navigations';
 import {
   faFile,
   faPenToSquare,
@@ -20,11 +21,11 @@ export const TodoList = ({
   const navigate = useNavigate();
 
   const handleMoveEditPage = (id) => {
-    navigate(`/edit/${id}`);
+    navigate(`${NAVIGATION_PATH.EDIT}/${id}`);
   };
 
   const handleMoveDetailPage = (id) => {
-    navigate(`/detail/${id}`);
+    navigate(`${NAVIGATION_PATH.DETAIL}/${id}`);
   };
   return (
     <>
